@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scheme version="2.0" title="UTS_Orange_Andi_Liani" description="Workflow for Insurance Risk Analysis">
+	<nodes>
+		<node id="0" name="File" qualified_name="orangecontrib.standard.widgets.owfile.OWFile" project_name="Orange3" version="" x="60" y="160">
+			<properties>
+				<entry name="recent_files" type="list">
+					<item type="tuple">
+						<item type="str">insurance_data.csv</item>
+						<item type="str"></item>
+						<item type="str"></item>
+					</item>
+				</entry>
+			</properties>
+		</node>
+		<node id="1" name="Data Table" qualified_name="orangecontrib.standard.widgets.owtable.OWDataTable" project_name="Orange3" version="" x="240" y="40">
+			<properties />
+		</node>
+		<node id="2" name="Distributions" qualified_name="orangecontrib.standard.widgets.owdistributions.OWDistributions" project_name="Orange3" version="" x="240" y="120">
+			<properties />
+		</node>
+		<node id="3" name="Scatter Plot" qualified_name="orangecontrib.standard.widgets.owscatterplot.OWScatterPlot" project_name="Orange3" version="" x="240" y="200">
+			<properties />
+		</node>
+		<node id="4" name="Box Plot" qualified_name="orangecontrib.standard.widgets.owboxplot.OWBoxPlot" project_name="Orange3" version="" x="480" y="120">
+			<properties />
+		</node>
+		<node id="5" name="Impute" qualified_name="orangecontrib.standard.widgets.owimpute.OWImpute" project_name="Orange3" version="" x="240" y="300">
+			<properties />
+		</node>
+		<node id="6" name="k-Means" qualified_name="orangecontrib.standard.widgets.owkmeans.OWKMeans" project_name="Orange3" version="" x="420" y="300">
+			<properties>
+				<entry name="k" type="int">3</entry>
+			</properties>
+		</node>
+		<node id="7" name="Logistic Regression" qualified_name="orangecontrib.standard.widgets.owlogisticregression.OWLogisticRegression" project_name="Orange3" version="" x="420" y="400">
+			<properties />
+		</node>
+		<node id="8" name="Test &amp; Score" qualified_name="orangecontrib.standard.widgets.owtestandscore.OWTestAndScore" project_name="Orange3" version="" x="620" y="350">
+			<properties />
+		</node>
+		<node id="9" name="ROC Analysis" qualified_name="orangecontrib.standard.widgets.owrocanalysis.OWROCAnalysis" project_name="Orange3" version="" x="800" y="350">
+			<properties />
+		</node>
+	</nodes>
+	<links>
+		<link id="0" source_node_id="0" sink_node_id="1" source_channel="Data" sink_channel="Data" />
+		<link id="1" source_node_id="0" sink_node_id="2" source_channel="Data" sink_channel="Data" />
+		<link id="2" source_node_id="0" sink_node_id="3" source_channel="Data" sink_channel="Data" />
+		<link id="3" source_node_id="0" sink_node_id="4" source_channel="Data" sink_channel="Data" />
+		<link id="4" source_node_id="0" sink_node_id="5" source_channel="Data" sink_channel="Data" />
+		<link id="5" source_node_id="5" source_node_channel="Data" sink_node_id="6" sink_node_channel="Data" />
+		<link id="6" source_node_id="6" source_node_channel="Annotated Data" sink_node_id="4" sink_node_channel="Data" />
+		<link id="7" source_node_id="5" source_node_channel="Data" sink_node_id="8" sink_node_channel="Data" />
+		<link id="8" source_node_id="7" source_node_channel="Learner" sink_node_id="8" sink_node_channel="Learner" />
+		<link id="9" source_node_id="8" source_node_channel="Evaluation Results" sink_node_id="9" sink_node_channel="Evaluation Results" />
+	</links>
+</scheme>
