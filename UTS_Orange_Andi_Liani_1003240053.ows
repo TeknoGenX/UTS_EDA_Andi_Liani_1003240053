@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <scheme version="2.0" title="UTS_Orange_Andi_Liani" description="Workflow for Insurance Risk Analysis">
 	<nodes>
-		<node id="0" name="File" qualified_name="orangecontrib.standard.widgets.owfile.OWFile" project_name="Orange3" version="" x="60" y="160">
+		<node id="0" name="File" qualified_name="Orange.widgets.data.owfile.OWFile" project_name="Orange3" version="" x="60" y="160" position="(60.0, 160.0)">
 			<properties>
 				<entry name="recent_files" type="list">
 					<item type="tuple">
@@ -12,33 +12,33 @@
 				</entry>
 			</properties>
 		</node>
-		<node id="1" name="Data Table" qualified_name="orangecontrib.standard.widgets.owtable.OWDataTable" project_name="Orange3" version="" x="240" y="40">
+		<node id="1" name="Data Table" qualified_name="Orange.widgets.data.owtable.OWDataTable" project_name="Orange3" version="" x="240" y="40" position="(240.0, 40.0)">
 			<properties />
 		</node>
-		<node id="2" name="Distributions" qualified_name="orangecontrib.standard.widgets.owdistributions.OWDistributions" project_name="Orange3" version="" x="240" y="120">
+		<node id="2" name="Distributions" qualified_name="Orange.widgets.visualize.owdistributions.OWDistributions" project_name="Orange3" version="" x="240" y="120" position="(240.0, 120.0)">
 			<properties />
 		</node>
-		<node id="3" name="Scatter Plot" qualified_name="orangecontrib.standard.widgets.owscatterplot.OWScatterPlot" project_name="Orange3" version="" x="240" y="200">
+		<node id="3" name="Scatter Plot" qualified_name="Orange.widgets.visualize.owscatterplot.OWScatterPlot" project_name="Orange3" version="" x="240" y="200" position="(240.0, 200.0)">
 			<properties />
 		</node>
-		<node id="4" name="Box Plot" qualified_name="orangecontrib.standard.widgets.owboxplot.OWBoxPlot" project_name="Orange3" version="" x="480" y="120">
+		<node id="4" name="Box Plot" qualified_name="Orange.widgets.visualize.owboxplot.OWBoxPlot" project_name="Orange3" version="" x="480" y="120" position="(480.0, 120.0)">
 			<properties />
 		</node>
-		<node id="5" name="Impute" qualified_name="orangecontrib.standard.widgets.owimpute.OWImpute" project_name="Orange3" version="" x="240" y="300">
+		<node id="5" name="Impute" qualified_name="Orange.widgets.data.owimpute.OWImpute" project_name="Orange3" version="" x="240" y="300" position="(240.0, 300.0)">
 			<properties />
 		</node>
-		<node id="6" name="k-Means" qualified_name="orangecontrib.standard.widgets.owkmeans.OWKMeans" project_name="Orange3" version="" x="420" y="300">
+		<node id="6" name="k-Means" qualified_name="Orange.widgets.unsupervised.owkmeans.OWKMeans" project_name="Orange3" version="" x="420" y="300" position="(420.0, 300.0)">
 			<properties>
 				<entry name="k" type="int">3</entry>
 			</properties>
 		</node>
-		<node id="7" name="Logistic Regression" qualified_name="orangecontrib.standard.widgets.owlogisticregression.OWLogisticRegression" project_name="Orange3" version="" x="420" y="400">
+		<node id="7" name="Logistic Regression" qualified_name="Orange.widgets.model.owlogisticregression.OWLogisticRegression" project_name="Orange3" version="" x="420" y="400" position="(420.0, 400.0)">
 			<properties />
 		</node>
-		<node id="8" name="Test &amp; Score" qualified_name="orangecontrib.standard.widgets.owtestandscore.OWTestAndScore" project_name="Orange3" version="" x="620" y="350">
+		<node id="8" name="Test &amp; Score" qualified_name="Orange.widgets.evaluate.owtestandscore.OWTestAndScore" project_name="Orange3" version="" x="620" y="350" position="(620.0, 350.0)">
 			<properties />
 		</node>
-		<node id="9" name="ROC Analysis" qualified_name="orangecontrib.standard.widgets.owrocanalysis.OWROCAnalysis" project_name="Orange3" version="" x="800" y="350">
+		<node id="9" name="ROC Analysis" qualified_name="Orange.widgets.evaluate.owrocanalysis.OWROCAnalysis" project_name="Orange3" version="" x="800" y="350" position="(800.0, 350.0)">
 			<properties />
 		</node>
 	</nodes>
@@ -46,12 +46,11 @@
 		<link id="0" source_node_id="0" sink_node_id="1" source_channel="Data" sink_channel="Data" />
 		<link id="1" source_node_id="0" sink_node_id="2" source_channel="Data" sink_channel="Data" />
 		<link id="2" source_node_id="0" sink_node_id="3" source_channel="Data" sink_channel="Data" />
-		<link id="3" source_node_id="0" sink_node_id="4" source_channel="Data" sink_channel="Data" />
 		<link id="4" source_node_id="0" sink_node_id="5" source_channel="Data" sink_channel="Data" />
-		<link id="5" source_node_id="5" source_node_channel="Data" sink_node_id="6" sink_node_channel="Data" />
-		<link id="6" source_node_id="6" source_node_channel="Annotated Data" sink_node_id="4" sink_node_channel="Data" />
-		<link id="7" source_node_id="5" source_node_channel="Data" sink_node_id="8" sink_node_channel="Data" />
-		<link id="8" source_node_id="7" source_node_channel="Learner" sink_node_id="8" sink_node_channel="Learner" />
-		<link id="9" source_node_id="8" source_node_channel="Evaluation Results" sink_node_id="9" sink_node_channel="Evaluation Results" />
+		<link id="5" source_node_id="5" sink_node_id="6" source_channel="Data" sink_channel="Data" />
+		<link id="6" source_node_id="6" sink_node_id="4" source_channel="Annotated Data" sink_channel="Data" />
+		<link id="7" source_node_id="5" sink_node_id="8" source_channel="Data" sink_channel="Data" />
+		<link id="8" source_node_id="7" sink_node_id="8" source_channel="Learner" sink_channel="Learner" />
+		<link id="9" source_node_id="8" sink_node_id="9" source_channel="Evaluation Results" sink_channel="Evaluation Results" />
 	</links>
 </scheme>
